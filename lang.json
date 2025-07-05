@@ -1,1 +1,78 @@
-{ "fr": { "titre": "DocGenie" }, "en": { "titre": "DocGenie" } }
+{
+  "fr": {
+    "nav": {
+      "accueil": "Accueil",
+      "modeles": "Modèles",
+      "generateur": "Générateur",
+      "contact": "Contact",
+      "apropos": "À propos",
+      "exemples": "Exemples",
+      "admin": "Admin"
+    },
+    "home": {
+      "welcome": "Bienvenue sur DocGenie",
+      "intro": "Générez facilement vos documents professionnels et personnels.",
+      "start": "Commencez dès maintenant"
+    },
+    "generateur": {
+      "choose_doc": "Choisissez un type de document :",
+      "preview": "Aperçu",
+      "download_pdf": "Télécharger en PDF"
+    },
+    "contact": {
+      "name": "Nom",
+      "email": "Email",
+      "message": "Message",
+      "send": "Envoyer"
+    },
+    "admin": {
+      "login": "Connexion Admin",
+      "username": "Nom d'utilisateur",
+      "password": "Mot de passe",
+      "commands": "Commandes disponibles",
+      "view_visitors": "Voir les visiteurs",
+      "clear_storage": "Vider localStorage",
+      "force_reload": "Forcer rechargement",
+      "login_error": "Identifiants incorrects",
+      "welcome": "Bienvenue"
+    }
+  },
+  "en": {
+    "nav": {
+      "accueil": "Home",
+      "modeles": "Templates",
+      "generateur": "Generator",
+      "contact": "Contact",
+      "apropos": "About",
+      "exemples": "Samples",
+      "admin": "Admin"
+    },
+    "home": {
+      "welcome": "Welcome to DocGenie",
+      "intro": "Easily generate your professional and personal documents.",
+      "start": "Get started now"
+    },
+    "generateur": {
+      "choose_doc": "Choose a document type:",
+      "preview": "Preview",
+      "download_pdf": "Download PDF"
+    },
+    "contact": {
+      "name": "Name",
+      "email": "Email",
+      "message": "Message",
+      "send": "Send"
+    },
+    "admin": {
+      "login": "Admin Login",
+      "username": "Username",
+      "password": "Password",
+      "commands": "Available commands",
+      "view_visitors": "View visitors",
+      "clear_storage": "Clear localStorage",
+      "force_reload": "Force reload",
+      "login_error": "Invalid credentials",
+      "welcome": "Welcome"
+    }
+  }
+}
