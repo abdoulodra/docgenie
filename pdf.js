@@ -74,4 +74,3 @@ function splitText(doc, text, x, y, maxWidth, lineHeight) {
   }
   return '';
 }
-// PDF generator script placeholder
