@@ -1,34 +1,53 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" data-theme="dark">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Test DocGenie</title>
-<style>
-  body { background: #0f0e17; color: #eee; font-family: Arial, sans-serif; padding: 2rem; }
-  a { color: #7f5af0; font-weight: bold; text-decoration: none; }
-  a:hover { text-decoration: underline; }
-  img { max-width: 100%; border-radius: 8px; }
-  .card { margin-bottom: 2rem; cursor: pointer; }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DocGenie - Générateur de Documents</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="img/favicon.png" />
 </head>
 <body>
+  <header>
+    <nav class="navbar">
+      <a href="index.html" class="logo">DocGenie</a>
+      <ul class="nav-links">
+        <li><a class="active" href="index.html">Accueil</a></li>
+        <li><a href="modeles.html">Modèles</a></li>
+        <li><a href="generateur.html">Générateur</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="a-propos.html">À propos</a></li>
+      </ul>
+      <button id="themeBtn">🌙</button>
+    </nav>
+  </header>
 
-<h1>Test images et liens DocGenie</h1>
+  <main class="page-content">
+    <section class="intro-section">
+      <h1>🧠 Bienvenue sur DocGenie</h1>
+      <p>Votre assistant intelligent pour créer des CV, lettres, contrats, attestations... en quelques clics !</p>
+      <a href="generateur.html" class="cta-button">Commencer &rarr;</a>
+    </section>
 
-<div class="card">
-  <a href="modeles.html">
-    <img src="https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?auto=format&fit=crop&w=600&q=80" alt="Robot Modèles" />
-    <p>Aller vers Modèles</p>
-  </a>
-</div>
+    <section class="cards-container">
+      <a href="modeles.html" class="doc-card">
+        <img src="https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?auto=format&fit=crop&w=600&q=80" alt="Modèles disponibles" />
+        <h3>Nos Modèles</h3>
+        <p>Parcourez nos modèles pour trouver celui qui vous correspond.</p>
+      </a>
 
-<div class="card">
-  <a href="generateur.html">
-    <img src="https://images.unsplash.com/photo-1549924231-f129b911e442?auto=format&fit=crop&w=600&q=80" alt="Robot Générateur" />
-    <p>Aller vers Générateur</p>
-  </a>
-</div>
+      <a href="generateur.html" class="doc-card">
+        <img src="https://images.unsplash.com/photo-1549924231-f129b911e442?auto=format&fit=crop&w=600&q=80" alt="Générateur IA" />
+        <h3>Générateur IA</h3>
+        <p>Remplissez un formulaire, obtenez un document prêt à l'emploi + PDF.</p>
+      </a>
+    </section>
+  </main>
 
+  <footer class="footer">
+    <p>&copy; 2025 DocGenie. Tous droits réservés.</p>
+  </footer>
+
+  <script src="app.js"></script>
 </body>
 </html>
