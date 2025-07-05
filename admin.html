@@ -1,1 +1,55 @@
-<!DOCTYPE html><html lang='fr'><head><meta charset='UTF-8'><title>Admin</title><link rel='stylesheet' href='style.css'></head><body><h1>Panneau d'administration</h1></body></html>
+<!DOCTYPE html>
+<html lang="fr" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DocGenie – Admin</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="admin.js"></script>
+</head>
+<body>
+
+<nav>
+  <div class="logo">DocGenie</div>
+  <div class="nav-links">
+    <a href="index.html">Accueil</a>
+    <a href="modeles.html">Modèles</a>
+    <a href="generateur.html">Générateur</a>
+    <a href="contact.html">Contact</a>
+    <a href="a-propos.html">À propos</a>
+    <a href="docs.html">Exemples</a>
+    <a href="admin.html" class="active">Admin</a>
+    <button id="themeBtn">🌙</button>
+  </div>
+</nav>
+
+<main>
+  <section id="login-section" class="admin-login">
+    <h1>Connexion Admin</h1>
+    <input type="text" id="admin-username" placeholder="Nom d'utilisateur" />
+    <input type="password" id="admin-password" placeholder="Mot de passe" />
+    <button onclick="loginAdmin()">Connexion</button>
+    <p id="admin-error" style="color:red; margin-top: 10px;"></p>
+  </section>
+
+  <section id="panel-section" class="admin-panel hidden">
+    <h1>Panneau d'administration</h1>
+    <p>Bienvenue, <span id="admin-name"></span></p>
+
+    <h3>Commandes disponibles :</h3>
+    <ul>
+      <li><button onclick="showVisitors()">Voir les visiteurs</button></li>
+      <li><button onclick="clearStorage()">Vider localStorage</button></li>
+      <li><button onclick="forceReload()">Forcer rechargement</button></li>
+    </ul>
+
+    <div id="admin-log" style="margin-top:20px; max-height:300px; overflow-y:auto; background:#111; padding:10px; border-radius:8px; color:#ddd; font-family: monospace;"></div>
+  </section>
+</main>
+
+<footer>
+  <p>© 2025 DocGenie – Créé avec ❤</p>
+</footer>
+
+</body>
+</html>
