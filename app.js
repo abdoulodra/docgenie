@@ -1,76 +1,68 @@
-// Thème clair/sombre
-const themeBtn = document.getElementById('themeBtn');
-if (themeBtn) {
-  themeBtn.addEventListener('click', () => {
-    const currentTheme = document.documentElement.getAttribute('data-theme');
-    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-    document.documentElement.setAttribute('data-theme', newTheme);
-    localStorage.setItem('theme', newTheme);
-    themeBtn.textContent = newTheme === 'dark' ? '🌙' : '☀️';
-  });
+// app.js : interactions, aperçu dynamique, sauvegarde localStorage
 
-  // Restaurer le thème
-  const savedTheme = localStorage.getItem('theme');
-  if (savedTheme) {
-    document.documentElement.setAttribute('data-theme', savedTheme);
-    themeBtn.textContent = savedTheme === 'dark' ? '🌙' : '☀️';
+const form = document.getElementById('docForm');
+const preview = document.getElementById('preview');
+
+// Charger depuis localStorage au chargement de la page
+window.addEventListener('load', () => {
+  const savedDoc = localStorage.getItem('lastDoc');
+  if (savedDoc) {
+    try {
+      const data = JSON.parse(savedDoc);
+      form.nom.value = data.nom || '';
+      form.type.value = data.type || '';
+      form.description.value = data.description || '';
+      updatePreview();
+    } catch (e) {
+      console.error('Erreur lecture localStorage:', e);
+    }
   }
-}
+});
 
-// Aperçus de documents
-const previews = {
-  cv: `
-    <h3>Jean Dupont</h3>
-    <p><strong>Email :</strong> jean.dupont@email.com</p>
-    <p><strong>Compétences :</strong> HTML, CSS, JavaScript</p>
-    <p><strong>Expériences :</strong> Développeur Frontend chez WebTech</p>
-  `,
-  lettre: `
-    <p>Madame, Monsieur,</p>
-    <p>Je vous écris afin de vous soumettre ma candidature pour le poste de développeur web...</p>
-    <p>Veuillez agréer l'expression de mes salutations distinguées.</p>
-  `,
-  attestation: `
-    <p>Nous certifions que Monsieur Jean Dupont a travaillé dans notre entreprise du 01/01/2022 au 01/06/2024.</p>
-    <p>Fait à Paris, le 05/07/2025.</p>
-  `,
-  contrat: `
-    <p>Ce contrat est établi entre :</p>
-    <ul>
-      <li><strong>Employeur :</strong> TechCorp</li>
-      <li><strong>Employé :</strong> Jean Dupont</li>
-      <li><strong>Poste :</strong> Développeur</li>
-    </ul>
-  `
-};
+// Met à jour l'aperçu dès qu'un champ change
+form.addEventListener('input', () => {
+  updatePreview();
+  saveToLocalStorage();
+});
 
-function openPreview(type) {
-  const modal = document.getElementById('previewModal');
-  const modalTitle = document.getElementById('modalTitle');
-  const modalBody = document.getElementById('modalBody');
+function updatePreview() {
+  const nom = form.nom.value.trim();
+  const type = form.type.value;
+  const desc = form.description.value.trim();
 
-  switch (type) {
-    case 'cv':
-      modalTitle.textContent = "Exemple de CV";
-      modalBody.innerHTML = previews.cv;
-      break;
-    case 'lettre':
-      modalTitle.textContent = "Exemple de Lettre";
-      modalBody.innerHTML = previews.lettre;
-      break;
-    case 'attestation':
-      modalTitle.textContent = "Exemple d'Attestation";
-      modalBody.innerHTML = previews.attestation;
-      break;
-    case 'contrat':
-      modalTitle.textContent = "Exemple de Contrat";
-      modalBody.innerHTML = previews.contrat;
-      break;
+  if (!nom || !type || !desc) {
+    preview.innerHTML = '<em>Remplissez tous les champs pour voir l’aperçu.</em>';
+    return;
   }
 
-  modal.classList.remove('hidden');
+  preview.innerHTML = `
+    <h3 style="color:#7f5af0;">${type.toUpperCase()}</h3>
+    <p><strong>Nom :</strong> ${escapeHtml(nom)}</p>
+    <p><strong>Description :</strong><br>${escapeHtml(desc).replace(/\n/g, '<br>')}</p>
+    <p style="font-style: italic; font-size: 0.9rem; color: #aaa;">
+      Document généré avec ❤️ par DocGenie
+    </p>
+  `;
 }
 
-function closeModal() {
-  document.getElementById('previewModal').classList.add('hidden');
+// Fonction d'échappement HTML pour éviter les injections XSS
+function escapeHtml(text) {
+  const map = {
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#039;'
+  };
+  return text.replace(/[&<>"']/g, function(m) { return map[m]; });
+}
+
+// Sauvegarde dans localStorage
+function saveToLocalStorage() {
+  const data = {
+    nom: form.nom.value,
+    type: form.type.value,
+    description: form.description.value
+  };
+  localStorage.setItem('lastDoc', JSON.stringify(data));
 }
