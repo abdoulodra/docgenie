@@ -1,206 +1,84 @@
 <!DOCTYPE html>
 <html lang="fr" data-theme="dark">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>DocGenie - Générateur de Documents</title>
-  <style>
-    :root {
-      --primary: #7f5af0;
-      --background-dark: #0f0e17;
-      --text-light: #f0f0f5;
-      --card-bg: rgba(127, 90, 240, 0.1);
-    }
-    [data-theme="dark"] {
-      background: var(--background-dark);
-      color: var(--text-light);
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      margin: 0; padding: 0;
-    }
-    body {
-      max-width: 900px;
-      margin: auto;
-      padding: 2rem;
-    }
-    h1 {
-      color: var(--primary);
-      text-align: center;
-      margin-bottom: 1.5rem;
-    }
-    form {
-      background: var(--card-bg);
-      padding: 1.5rem;
-      border-radius: 15px;
-      box-shadow: 0 0 20px rgba(127, 90, 240, 0.3);
-      margin-bottom: 2rem;
-    }
-    label {
-      display: block;
-      margin-bottom: 0.5rem;
-      font-weight: 600;
-    }
-    input[type="text"], select, textarea {
-      width: 100%;
-      padding: 0.6rem;
-      border-radius: 8px;
-      border: none;
-      margin-bottom: 1rem;
-      font-size: 1rem;
-      font-family: inherit;
-      resize: vertical;
-    }
-    textarea {
-      min-height: 100px;
-    }
-    button {
-      background: var(--primary);
-      border: none;
-      color: white;
-      font-weight: 700;
-      padding: 0.8rem 2rem;
-      border-radius: 25px;
-      font-size: 1.1rem;
-      cursor: pointer;
-      box-shadow: 0 0 15px var(--primary);
-      transition: background-color 0.3s ease;
-    }
-    button:hover {
-      background: #986efc;
-      box-shadow: 0 0 30px #986efc;
-    }
-    #preview {
-      background: var(--card-bg);
-      border-radius: 15px;
-      padding: 1.5rem;
-      box-shadow: 0 0 15px rgba(127, 90, 240, 0.2);
-      min-height: 180px;
-      white-space: pre-wrap;
-    }
-    .robot-img {
-      display: block;
-      margin: 1rem auto;
-      max-width: 300px;
-      border-radius: 12px;
-      box-shadow: 0 0 15px rgba(127, 90, 240, 0.4);
-      user-select: none;
-      pointer-events: none;
-    }
-    @media (max-width: 600px) {
-      body {
-        padding: 1rem;
-      }
-      .robot-img {
-        max-width: 100%;
-      }
-    }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>DocGenie - Générateur de Documents</title>
+<link rel="stylesheet" href="style.css" />
 </head>
-<body data-theme="dark">
+<body>
+<header>
+  <nav class="navbar">
+    <a href="index.html" class="logo">DocGenie</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="modeles.html">Modèles</a></li>
+      <li><a class="active" href="generateur.html">Générateur</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="a-propos.html">À propos</a></li>
+    </ul>
+  </nav>
+</header>
 
-  <h1>Générateur de Documents DocGenie</h1>
+<main>
+  <section class="generateur-section">
+    <h1>Générateur de Documents</h1>
 
-  <form id="docForm">
-    <label for="nom">Nom complet :</label>
-    <input type="text" id="nom" name="nom" placeholder="Votre nom complet" required />
+    <form id="docForm">
+      <label for="nom">Nom complet :</label>
+      <input type="text" id="nom" name="nom" placeholder="Votre nom complet" required />
 
-    <label for="type">Type de document :</label>
-    <select id="type" name="type" required>
-      <option value="">-- Choisissez un type --</option>
-      <option value="cv">CV</option>
-      <option value="lettre">Lettre de motivation</option>
-      <option value="attestation">Attestation</option>
-      <option value="contrat">Contrat</option>
-    </select>
+      <label for="type">Type de document :</label>
+      <select id="type" name="type" required>
+        <option value="">-- Choisissez un type --</option>
+        <option value="cv">CV</option>
+        <option value="lettre">Lettre de motivation</option>
+        <option value="attestation">Attestation</option>
+        <option value="contrat">Contrat</option>
+      </select>
 
-    <label for="description">Description / Contenu :</label>
-    <textarea id="description" name="description" placeholder="Écrivez ici le contenu de votre document..." required></textarea>
+      <label for="description">Description / Contenu :</label>
+      <textarea id="description" name="description" placeholder="Écrivez ici le contenu de votre document..." required></textarea>
 
-    <button type="submit" id="generatePdf">Générer & Télécharger PDF</button>
-  </form>
+      <button type="submit" id="generatePdf">Générer & Télécharger PDF</button>
+    </form>
 
-  <section>
-    <h2>Aperçu du document :</h2>
-    <div id="preview" aria-live="polite"></div>
+    <section>
+      <h2>Aperçu du document :</h2>
+      <div id="preview" aria-live="polite" class="preview-box">
+        <em>Remplissez les champs pour voir l’aperçu.</em>
+      </div>
+    </section>
+
+    <div class="robot-images">
+      <img
+        src="https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?auto=format&fit=crop&w=600&q=80"
+        alt="Robot intelligent"
+        class="robot-img"
+        draggable="false"
+      />
+      <img
+        src="https://images.unsplash.com/photo-1549924231-f129b911e442?auto=format&fit=crop&w=600&q=80"
+        alt="Robot futuriste"
+        class="robot-img"
+        draggable="false"
+      />
+      <img
+        src="https://images.unsplash.com/photo-1535905748047-14bc9327a281?auto=format&fit=crop&w=600&q=80"
+        alt="Robot high-tech"
+        class="robot-img"
+        draggable="false"
+      />
+    </div>
   </section>
+</main>
 
-  <img
-    src="https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?auto=format&fit=crop&w=600&q=80"
-    alt="Robot intelligent"
-    class="robot-img"
-    draggable="false"
-  />
+<footer class="footer">
+  <p>&copy; 2025 DocGenie. Tous droits réservés.</p>
+</footer>
 
-  <img
-    src="https://images.unsplash.com/photo-1549924231-f129b911e442?auto=format&fit=crop&w=600&q=80"
-    alt="Robot futuriste"
-    class="robot-img"
-    draggable="false"
-  />
-
-  <!-- jsPDF CDN -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-
-  <script>
-    const { jsPDF } = window.jspdf;
-
-    const form = document.getElementById('docForm');
-    const preview = document.getElementById('preview');
-
-    // Affiche l'aperçu live à chaque saisie
-    form.addEventListener('input', () => {
-      const nom = form.nom.value.trim();
-      const type = form.type.value;
-      const desc = form.description.value.trim();
-
-      if (!nom || !type || !desc) {
-        preview.innerHTML = '<em>Remplissez tous les champs pour voir l\'aperçu.</em>';
-        return;
-      }
-
-      preview.innerHTML = `
-        <h3 style="color: #7f5af0;">${type.toUpperCase()}</h3>
-        <p><strong>Nom :</strong> ${nom}</p>
-        <p><strong>Description :</strong><br>${desc.replace(/\n/g, '<br>')}</p>
-        <p style="font-style: italic; font-size: 0.9rem; color: #aaa;">Document généré avec ❤️ par DocGenie</p>
-      `;
-    });
-
-    // Génération du PDF lors du submit
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-
-      const nom = form.nom.value.trim();
-      const type = form.type.value;
-      const desc = form.description.value.trim();
-
-      if (!nom || !type || !desc) {
-        alert('Veuillez remplir tous les champs.');
-        return;
-      }
-
-      const doc = new jsPDF();
-
-      doc.setFont('helvetica', 'bold');
-      doc.setFontSize(22);
-      doc.setTextColor('#7f5af0');
-      doc.text(type.toUpperCase(), 20, 30);
-
-      doc.setFontSize(14);
-      doc.setTextColor('#000000');
-      doc.text(`Nom : ${nom}`, 20, 45);
-
-      doc.setFont('helvetica', 'normal');
-      const splitDesc = doc.splitTextToSize(desc, 170);
-      doc.text('Description :', 20, 60);
-      doc.text(splitDesc, 20, 70);
-
-      doc.setFontSize(10);
-      doc.setTextColor('#777777');
-      doc.text('Document généré avec DocGenie', 20, 280);
-
-      doc.save(`${type}_${nom.replace(/\s+/g, '_')}.pdf`);
-    });
-  </script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="app.js"></script>
+<script src="pdf.js"></script>
 </body>
 </html>
