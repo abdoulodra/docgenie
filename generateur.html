@@ -1,84 +1,57 @@
 <!DOCTYPE html>
 <html lang="fr" data-theme="dark">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>DocGenie - Générateur de Documents</title>
-<link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DocGenie – Générateur</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-<header>
-  <nav class="navbar">
-    <a href="index.html" class="logo">DocGenie</a>
-    <ul class="nav-links">
-      <li><a href="index.html">Accueil</a></li>
-      <li><a href="modeles.html">Modèles</a></li>
-      <li><a class="active" href="generateur.html">Générateur</a></li>
-      <li><a href="contact.html">Contact</a></li>
-      <li><a href="a-propos.html">À propos</a></li>
-    </ul>
-  </nav>
-</header>
+
+<nav>
+  <div class="logo">DocGenie</div>
+  <div class="nav-links">
+    <a href="index.html">Accueil</a>
+    <a href="modeles.html">Modèles</a>
+    <a href="generateur.html" class="active">Générateur</a>
+    <a href="contact.html">Contact</a>
+    <a href="a-propos.html">À propos</a>
+    <a href="docs.html">Exemples</a>
+    <a href="admin.html">Admin</a>
+    <button id="themeBtn">🌙</button>
+  </div>
+</nav>
 
 <main>
-  <section class="generateur-section">
-    <h1>Générateur de Documents</h1>
+  <section class="generator-section">
+    <h1>Générateur de documents</h1>
+
+    <label for="docType">Choisissez un type de document :</label>
+    <select id="docType">
+      <option value="cv">CV</option>
+      <option value="lettre">Lettre de motivation</option>
+      <option value="attestation">Attestation</option>
+      <option value="contrat">Contrat de travail</option>
+    </select>
 
     <form id="docForm">
-      <label for="nom">Nom complet :</label>
-      <input type="text" id="nom" name="nom" placeholder="Votre nom complet" required />
-
-      <label for="type">Type de document :</label>
-      <select id="type" name="type" required>
-        <option value="">-- Choisissez un type --</option>
-        <option value="cv">CV</option>
-        <option value="lettre">Lettre de motivation</option>
-        <option value="attestation">Attestation</option>
-        <option value="contrat">Contrat</option>
-      </select>
-
-      <label for="description">Description / Contenu :</label>
-      <textarea id="description" name="description" placeholder="Écrivez ici le contenu de votre document..." required></textarea>
-
-      <button type="submit" id="generatePdf">Générer & Télécharger PDF</button>
+      <!-- Champs dynamiques insérés ici -->
     </form>
 
-    <section>
-      <h2>Aperçu du document :</h2>
-      <div id="preview" aria-live="polite" class="preview-box">
-        <em>Remplissez les champs pour voir l’aperçu.</em>
-      </div>
-    </section>
+    <button id="previewBtn" class="btn-neon">Aperçu</button>
+    <button id="pdfBtn" class="btn-glass">Télécharger en PDF</button>
 
-    <div class="robot-images">
-      <img
-        src="https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?auto=format&fit=crop&w=600&q=80"
-        alt="Robot intelligent"
-        class="robot-img"
-        draggable="false"
-      />
-      <img
-        src="https://images.unsplash.com/photo-1549924231-f129b911e442?auto=format&fit=crop&w=600&q=80"
-        alt="Robot futuriste"
-        class="robot-img"
-        draggable="false"
-      />
-      <img
-        src="https://images.unsplash.com/photo-1535905748047-14bc9327a281?auto=format&fit=crop&w=600&q=80"
-        alt="Robot high-tech"
-        class="robot-img"
-        draggable="false"
-      />
-    </div>
+    <section id="preview" class="preview-box" aria-live="polite">
+      <!-- Aperçu HTML dynamique -->
+    </section>
   </section>
 </main>
 
-<footer class="footer">
-  <p>&copy; 2025 DocGenie. Tous droits réservés.</p>
+<footer>
+  <p>© 2025 DocGenie – Créé avec ❤</p>
 </footer>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-<script src="app.js"></script>
-<script src="pdf.js"></script>
+<script src="app.js" type="module"></script>
+<script src="pdf.js" type="module"></script>
 </body>
 </html>
