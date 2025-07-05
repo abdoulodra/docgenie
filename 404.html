@@ -1,1 +1,53 @@
-<!DOCTYPE html><html lang='fr'><head><meta charset='UTF-8'><title>404</title><link rel='stylesheet' href='style.css'></head><body><h1>Page non trouvée 🤖</h1></body></html>
+<!DOCTYPE html>
+<html lang="fr" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DocGenie – Page non trouvée</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .robot-sad {
+      width: 200px;
+      margin: 2em auto;
+      display: block;
+      animation: float 3s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">DocGenie</div>
+  <div class="nav-links">
+    <a href="index.html">Accueil</a>
+    <a href="modeles.html">Modèles</a>
+    <a href="generateur.html">Générateur</a>
+    <a href="contact.html">Contact</a>
+    <a href="a-propos.html">À propos</a>
+    <a href="docs.html">Exemples</a>
+    <a href="admin.html">Admin</a>
+    <button id="themeBtn">🌙</button>
+  </div>
+</nav>
+
+<main>
+  <section style="text-align:center; padding:2em;">
+    <h1>404 - Oups, page non trouvée</h1>
+    <p>Le robot est triste... 🤖💔</p>
+    <img class="robot-sad" src="https://cdn.pixabay.com/photo/2020/03/16/22/28/robot-4934711_960_720.jpg" alt="Robot triste" />
+    <p><a href="index.html" class="btn-neon">Retour à l'accueil</a></p>
+  </section>
+</main>
+
+<footer>
+  <p>© 2025 DocGenie – Créé avec ❤</p>
+</footer>
+
+<script src="app.js" type="module"></script>
+
+</body>
+</html>
