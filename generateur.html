@@ -1,1 +1,57 @@
-<!DOCTYPE html><html lang='fr'><head><meta charset='UTF-8'><title>Générateur</title><link rel='stylesheet' href='style.css'></head><body><h1>Générez vos documents</h1></body></html>
+<!DOCTYPE html>
+<html lang="fr" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DocGenie – Générateur</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<nav>
+  <div class="logo">DocGenie</div>
+  <div class="nav-links">
+    <a href="index.html">Accueil</a>
+    <a href="modeles.html">Modèles</a>
+    <a href="generateur.html" class="active">Générateur</a>
+    <a href="contact.html">Contact</a>
+    <a href="a-propos.html">À propos</a>
+    <a href="docs.html">Exemples</a>
+    <a href="admin.html">Admin</a>
+    <button id="themeBtn">🌙</button>
+  </div>
+</nav>
+
+<main>
+  <section class="generator-section">
+    <h1>Générateur de documents</h1>
+
+    <label for="docType">Choisissez un type de document :</label>
+    <select id="docType">
+      <option value="cv">CV</option>
+      <option value="lettre">Lettre de motivation</option>
+      <option value="attestation">Attestation</option>
+      <option value="contrat">Contrat de travail</option>
+    </select>
+
+    <form id="docForm">
+      <!-- Champs dynamiques insérés ici -->
+    </form>
+
+    <button id="previewBtn" class="btn-neon">Aperçu</button>
+    <button id="pdfBtn" class="btn-glass">Télécharger en PDF</button>
+
+    <section id="preview" class="preview-box" aria-live="polite">
+      <!-- Aperçu HTML dynamique -->
+    </section>
+  </section>
+</main>
+
+<footer>
+  <p>© 2025 DocGenie – Créé avec ❤</p>
+</footer>
+
+<script src="app.js" type="module"></script>
+<script src="pdf.js" type="module"></script>
+</body>
+</html>
