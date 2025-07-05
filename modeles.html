@@ -3,78 +3,44 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nos Modèles – DocGenie</title>
+  <title>DocGenie – Modèles</title>
   <link rel="stylesheet" href="style.css" />
-  <link rel="icon" href="img/favicon.png" />
 </head>
 <body>
 
-  <!-- NAVBAR -->
-  <header>
-    <nav class="navbar">
-      <a href="index.html" class="logo">DocGenie</a>
-      <ul class="nav-links">
-        <li><a href="index.html">Accueil</a></li>
-        <li><a class="active" href="modeles.html">Modèles</a></li>
-        <li><a href="generateur.html">Générateur</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="a-propos.html">À propos</a></li>
-      </ul>
-      <button id="themeBtn">🌙</button>
-    </nav>
-  </header>
-
-  <!-- CONTENU PRINCIPAL -->
-  <main class="page-content">
-    <section class="intro-section">
-      <h1>📄 Nos Modèles de Documents</h1>
-      <p>Choisissez un document pour visualiser un exemple ou en générer un personnalisé.</p>
-    </section>
-
-    <section class="cards-container">
-
-      <div class="doc-card" onclick="openPreview('cv')">
-        <img src="https://cdn.pixabay.com/photo/2023/01/30/11/19/robot-7754457_960_720.jpg" alt="Robot CV">
-        <h3>CV Professionnels</h3>
-        <p>Créez un CV moderne et clair prêt à l'emploi.</p>
-      </div>
-
-      <div class="doc-card" onclick="openPreview('lettre')">
-        <img src="https://cdn.pixabay.com/photo/2023/08/10/13/07/ai-8181786_960_720.jpg" alt="Robot Lettre">
-        <h3>Lettres Motivées</h3>
-        <p>Rédigez des lettres convaincantes et professionnelles.</p>
-      </div>
-
-      <div class="doc-card" onclick="openPreview('attestation')">
-        <img src="https://cdn.pixabay.com/photo/2019/08/11/10/37/robot-4392337_960_720.jpg" alt="Robot Attestation">
-        <h3>Attestations</h3>
-        <p>Générez des attestations simples et officielles.</p>
-      </div>
-
-      <div class="doc-card" onclick="openPreview('contrat')">
-        <img src="https://cdn.pixabay.com/photo/2020/06/04/06/59/robot-5257705_960_720.jpg" alt="Robot Contrat">
-        <h3>Contrats</h3>
-        <p>Créez des modèles de contrats clairs et personnalisés.</p>
-      </div>
-
-    </section>
-  </main>
-
-  <!-- MODAL DE PRÉVISUALISATION -->
-  <div id="previewModal" class="modal hidden">
-    <div class="modal-content">
-      <span class="close-btn" onclick="closeModal()">&times;</span>
-      <h2 id="modalTitle">Titre</h2>
-      <div id="modalBody" class="modal-body">
-        <!-- contenu dynamique -->
-      </div>
-    </div>
+<nav>
+  <div class="logo">DocGenie</div>
+  <div class="nav-links">
+    <a href="index.html">Accueil</a>
+    <a href="modeles.html" class="active">Modèles</a>
+    <a href="generateur.html">Générateur</a>
+    <a href="contact.html">Contact</a>
+    <a href="a-propos.html">À propos</a>
+    <a href="docs.html">Exemples</a>
+    <a href="admin.html">Admin</a>
+    <button id="themeBtn">🌙</button>
   </div>
+</nav>
 
-  <footer class="footer">
-    <p>&copy; 2025 DocGenie. Tous droits réservés.</p>
-  </footer>
+<main>
+  <section>
+    <h1>Modèles de documents disponibles</h1>
+    <ul>
+      <li><strong>CV Professionnel</strong> — Modèle élégant et moderne.</li>
+      <li><strong>Lettre de motivation</strong> — Adaptée à tous secteurs.</li>
+      <li><strong>Attestation</strong> — Facile à personnaliser.</li>
+      <li><strong>Contrat de travail</strong> — Format standard légal.</li>
+      <li><strong>Autres documents</strong> — Sur demande.</li>
+    </ul>
+    <a href="generateur.html" class="btn-neon">Utiliser un modèle</a>
+  </section>
+</main>
 
-  <script src="app.js"></script>
+<footer>
+  <p>© 2025 DocGenie – Créé avec ❤</p>
+</footer>
+
+<script src="app.js" type="module"></script>
+<script src="pdf.js" type="module"></script>
 </body>
 </html>
