@@ -1,1 +1,51 @@
-<!DOCTYPE html><html lang='fr'><head><meta charset='UTF-8'><title>Contact</title><link rel='stylesheet' href='style.css'></head><body><h1>Contactez-nous</h1></body></html>
+<!DOCTYPE html>
+<html lang="fr" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DocGenie – Contact</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<nav>
+  <div class="logo">DocGenie</div>
+  <div class="nav-links">
+    <a href="index.html">Accueil</a>
+    <a href="modeles.html">Modèles</a>
+    <a href="generateur.html">Générateur</a>
+    <a href="contact.html" class="active">Contact</a>
+    <a href="a-propos.html">À propos</a>
+    <a href="docs.html">Exemples</a>
+    <a href="admin.html">Admin</a>
+    <button id="themeBtn">🌙</button>
+  </div>
+</nav>
+
+<main>
+  <section>
+    <h1>Contactez-nous</h1>
+    <form id="contactForm">
+      <label for="name">Nom :</label>
+      <input type="text" id="name" name="name" required />
+
+      <label for="email">Email :</label>
+      <input type="email" id="email" name="email" required />
+
+      <label for="message">Message :</label>
+      <textarea id="message" name="message" rows="5" required></textarea>
+
+      <button type="submit" class="btn-neon">Envoyer</button>
+    </form>
+    <p id="contactStatus" aria-live="polite"></p>
+  </section>
+</main>
+
+<footer>
+  <p>© 2025 DocGenie – Créé avec ❤</p>
+</footer>
+
+<script src="app.js" type="module"></script>
+
+</body>
+</html>
