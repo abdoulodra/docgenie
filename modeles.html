@@ -3,44 +3,63 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DocGenie – Modèles</title>
+  <title>Nos Modèles – DocGenie</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="img/favicon.png" />
 </head>
 <body>
 
-<nav>
-  <div class="logo">DocGenie</div>
-  <div class="nav-links">
-    <a href="index.html">Accueil</a>
-    <a href="modeles.html" class="active">Modèles</a>
-    <a href="generateur.html">Générateur</a>
-    <a href="contact.html">Contact</a>
-    <a href="a-propos.html">À propos</a>
-    <a href="docs.html">Exemples</a>
-    <a href="admin.html">Admin</a>
-    <button id="themeBtn">🌙</button>
-  </div>
-</nav>
+  <header>
+    <nav class="navbar">
+      <a href="index.html" class="logo">DocGenie</a>
+      <ul class="nav-links">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a class="active" href="modeles.html">Modèles</a></li>
+        <li><a href="generateur.html">Générateur</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="a-propos.html">À propos</a></li>
+      </ul>
+      <button id="themeBtn">🌙</button>
+    </nav>
+  </header>
 
-<main>
-  <section>
-    <h1>Modèles de documents disponibles</h1>
-    <ul>
-      <li><strong>CV Professionnel</strong> — Modèle élégant et moderne.</li>
-      <li><strong>Lettre de motivation</strong> — Adaptée à tous secteurs.</li>
-      <li><strong>Attestation</strong> — Facile à personnaliser.</li>
-      <li><strong>Contrat de travail</strong> — Format standard légal.</li>
-      <li><strong>Autres documents</strong> — Sur demande.</li>
-    </ul>
-    <a href="generateur.html" class="btn-neon">Utiliser un modèle</a>
-  </section>
-</main>
+  <main class="page-content">
+    <section class="intro-section">
+      <h1>📄 Nos Modèles de Documents</h1>
+      <p>Choisissez le type de document que vous souhaitez générer avec DocGenie.</p>
+    </section>
 
-<footer>
-  <p>© 2025 DocGenie – Créé avec ❤</p>
-</footer>
+    <section class="cards-container">
+      <div class="doc-card">
+        <img src="https://cdn.pixabay.com/photo/2023/01/30/11/19/robot-7754457_960_720.jpg" alt="Robot 1">
+        <h3>CV Professionnels</h3>
+        <p>Créez un CV moderne et clair en quelques clics, prêt à être envoyé.</p>
+      </div>
 
-<script src="app.js" type="module"></script>
-<script src="pdf.js" type="module"></script>
+      <div class="doc-card">
+        <img src="https://cdn.pixabay.com/photo/2023/08/10/13/07/ai-8181786_960_720.jpg" alt="Robot 2">
+        <h3>Lettres Motivées</h3>
+        <p>Générez automatiquement des lettres de motivation convaincantes et personnalisées.</p>
+      </div>
+
+      <div class="doc-card">
+        <img src="https://cdn.pixabay.com/photo/2019/08/11/10/37/robot-4392337_960_720.jpg" alt="Robot 3">
+        <h3>Attestations</h3>
+        <p>Générez des attestations simples et officielles pour tout usage.</p>
+      </div>
+
+      <div class="doc-card">
+        <img src="https://cdn.pixabay.com/photo/2020/06/04/06/59/robot-5257705_960_720.jpg" alt="Robot 4">
+        <h3>Contrats</h3>
+        <p>Créez des modèles de contrats professionnels clairs et prêts à signer.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2025 DocGenie. Tous droits réservés.</p>
+  </footer>
+
+  <script src="app.js"></script>
 </body>
 </html>
